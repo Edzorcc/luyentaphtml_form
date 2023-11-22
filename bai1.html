@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+    <h1>HN-Aptech Regtistration Form</h1>
+    <p>Which subject would you like to learn ?</p>
+    <form action="index.php" method="post" onsubmit="return validateEmail()">
+        <input type="checkbox" id="subject" name="Java">
+        <label for="subject">Java</label>
+        <br>
+        <input type="checkbox" id="subject" name="HTML">
+        <label for="subject">HTML</label>
+        <br>
+        <input type="checkbox" id="subject" name="Net">
+        <label for="subject">Net</label>
+        <br>
+        <input type="checkbox" id="subject" name="sql">
+        <label for="subject">SQL</label>
+        <br>
+        <p>Where do you want to study at ?</p>
+        <input type="radio" id="56ntt" name="address" value="NCT">
+        <label for="56ntt">56 Nguyen Chi Thanh</label>
+        <br>
+        <input type="radio" id="19nt" name="address" value="NT">
+        <label for="19nt">19 Nguyen Trai</label>
+        <br>
+        <br>
+        <label for="email">Your Email Address</label>
+        <textarea name="email" id="Email" cols="20" rows="1"></textarea>
+        <br>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("Email").value;
+            if (email === "" || !email.includes("@")) {
+                alert("Invalid email address");
+                return false;
+               
+            } else {
+                alert("Register successfully!");
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>

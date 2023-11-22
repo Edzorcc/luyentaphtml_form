@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var num1 = parseFloat(document.getElementById("number1").value);
+            var num2 = parseFloat(document.getElementById("number2").value);
+            var operation = document.querySelector('input[name="ALLL"]:checked').value;
+            var resultTextarea = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Giá trị nhập không phải là số");
+                return false;
+            }
+
+            if (operation === "Chia" && num2 == 0) {
+                alert("Không thể chia cho 0");
+                return false;
+            }
+
+            var result;
+            if (operation === "Cong") {
+                result = num1 + num2;
+            } else if (operation === "Tru") {
+                result = num1 - num2;
+            } else if (operation === "Nhan") {
+                result = num1 * num2;
+            } else if (operation === "Chia") {
+                result = num1 / num2;
+            }
+
+            resultTextarea.value = "Kết quả: " + result;
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="number1">1.Number:</label>
+        <input type="text" id="number1" name="Number1">
+        <label for="number2">2.Number:</label>
+        <input type="text" id="number2" name="Number2">
+        <br> <input type="radio" id="add" name="ALLL" value="Cong">
+        <label for="add">Add</label>
+        <input type="radio" id="sub" name="ALLL" value="Tru">
+        <label for="sub">Sub</label>
+        <input type="radio" id="Mul" name="ALLL" value="Nhan">
+        <label for="Mul">Mul</label>
+        <input type="radio" id="Div" name="ALLL" value="Chia">
+        <label for="Div">Div</label>
+        <br>
+        <button type="submit" value="Result">Result</button>
+        <textarea id="result" name="result" rows="1" cols="20" placeholder="Kết quả là...."></textarea>
+    </form>
+</body>
+
+</html>
